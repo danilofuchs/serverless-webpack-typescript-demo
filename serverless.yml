@@ -1,0 +1,18 @@
+service: serverless-webpack-typescript
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  hello:
+    handler: src/handler.hello
+    events:
+      - http:
+        method: get
+        path: hello
+        integration: lambda
